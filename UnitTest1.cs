@@ -1,16 +1,19 @@
-﻿using System.Collections.Generic;
-using System.Xml.Linq;
-using Xunit;
+﻿using System.Collections.Generic; // // для IEnumerable 
+using System.Xml.Linq; // // щоб писати просто XELEMENT скорочено а не повну назву + для XML дерев
+using Xunit; 
 
-public class DiagnosticFixture
+public class DiagnosticFixture // Це клас, який зберігає тестові дані для тестів.
 {
+    // Це властивості, у яких зберігаються тестові XML-дані.
     public IEnumerable<XElement> Doctors { get; private set; }
+    // private set — змінити значення можна тільки всередині DiagnosticFixture
+    // Doctors — список XML-елементів <Doctor>
     public IEnumerable<XElement> Patients { get; private set; }
     public IEnumerable<XElement> Categories { get; private set; }
     public IEnumerable<XElement> Examinations { get; private set; }
     public IEnumerable<XElement> Records { get; private set; }
 
-    public DiagnosticFixture()
+    public DiagnosticFixture() // Це конструктор класу DiagnosticFixture 
     {
         Doctors = XElement.Parse(@"
 <Doctors>
@@ -20,7 +23,9 @@ public class DiagnosticFixture
     </Doctor>
 </Doctors>").Descendants("Doctor");
 
-        Patients = XElement.Parse(@"
+        // C# бере цей текст і робить з нього справжнє XML-дерево
+        // Ці блоки XML потрібні, щоб мати тестові дані прямо в тестах, без окремих .xml файлів.
+        Patients = XElement.Parse(@" 
 <Patients>
     <Patient>
         <Id>1</Id>
@@ -71,16 +76,21 @@ public class DiagnosticFixture
     }
 }
 
-public class DiagnosticProcessorTests : IClassFixture<DiagnosticFixture>
+public class DiagnosticProcessorTests : IClassFixture<DiagnosticFixture> // це клас, у якому будуть тести для DiagnosticProcessor
+// : (наслідування) DiagnosticProcessorTests використовує можливість IClassFixture
+// IClassFixture — це штука з xUnit, яка каже: створи один об’єкт з тестовими даними і дай його тестовому класу
+// Тобто xUnit сам створить: new DiagnosticFixture()
+// <DiagnosticFixture> - Це означає який саме клас треба використати як fixture(джерело тестових даних)
 {
-    private readonly DiagnosticFixture _fixture;
+    private readonly DiagnosticFixture _fixture; // Це поле класу, у якому ми зберігаємо об’єкт DiagnosticFixture.
 
-    public DiagnosticProcessorTests(DiagnosticFixture fixture)
+    public DiagnosticProcessorTests(DiagnosticFixture fixture) // Це конструктор класу DiagnosticProcessorTests
     {
-        _fixture = fixture;
+        _fixture = fixture; // xUnit автоматично створює DiagnosticFixture і передає його сюди і Потім ми зберігаємо його(об'єкт) в поле класу
     }
 
-    [Fact]
+    [Fact] // це позначка для xUnit, що метод який під ним є тестом. Тобто xUnit бачить [Fact] і розуміє: цей метод треба запустити під час тестування.
+    // Без [Fact] метод просто існує, але як тест не запуститься.
     public void TaskATest()
     {
         var expected = XElement.Parse(@"
