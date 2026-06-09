@@ -13,8 +13,7 @@ namespace DiagnosticCenter // для об'єднання класів в про�
   {
     public static IEnumerable<XElement> LoadElements(string filePath, string elementName)
     {
-      if (!File.Exists(filePath)) return Enumerable.Empty<XElement>();
-      return XElement.Load(filePath).Elements(elementName);
+      return XElement.Load(filePath).Elements(elementName); //відкриває XML і бере звідти дані по шляху(filePath).Тегу(elementName 1 об'єкта)
     }
   }
 
@@ -23,8 +22,8 @@ namespace DiagnosticCenter // для об'єднання класів в про�
   {
     // Завдання А
     public static XElement GetTaskA(
-        IEnumerable<XElement> recordsTree,
-        IEnumerable<XElement> examinationsTree,
+        IEnumerable<XElement> recordsTree, //передається список xml елементів (будь-який XML має структуру xml дерева). 
+        IEnumerable<XElement> examinationsTree, // а ось ці ...Tree це просто параметри, але параметри задаються в запитах нижче де виклик GetTaskA
         IEnumerable<XElement> doctorsTree,
         IEnumerable<XElement> categoriesTree)
     {
@@ -109,7 +108,7 @@ namespace DiagnosticCenter // для об'єднання класів в про�
       System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
 
       // Вантажимо дерева через один універсальний метод
-      var doctors = DataLoader.LoadElements("doctors.xml", "Doctor");
+      var doctors = DataLoader.LoadElements("doctors.xml", "Doctor"); // назва xml тегу з xml файлу тег якого треба витягнути
       var patients = DataLoader.LoadElements("patients.xml", "Patient");
       var categories = DataLoader.LoadElements("categories.xml", "Category");
       var examinations = DataLoader.LoadElements("examinations.xml", "Examination");
