@@ -32,7 +32,7 @@ namespace DiagnosticCenter // для об'єднання класів в про�
                   join e in examinationsTree on (int)r.Element("ExaminationId") equals (int)e.Element("Id")
                   // Групування за цифрою з тегу
                   group new { r, e } by (int)e.Element("DoctorId") into docGroup
-                  join d in doctorsTree on docGroup.Key equals (int)d.Element("Id")
+                  join d in doctorsTree on docGroup.Key equals (int)d.Element("Id") //docGroup.Key — це DoctorId
                   orderby (string)d.Element("Surname")
                   select new XElement("Doctor",
                       new XAttribute("Surname", (string)d.Element("Surname")),
@@ -43,7 +43,7 @@ namespace DiagnosticCenter // для об'єднання класів в про�
                       orderby (string)c.Element("Name")
                       select new XElement("Category",
                           new XAttribute("Name", (string)c.Element("Name")),
-                          new XAttribute("Count", catGroup.Count())
+                          new XAttribute("Count", catGroup.Count()) //у категорію запиши, скільки разів лікар виконав це обстеження
                       )
                   );
 
