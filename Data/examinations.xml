@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Examinations>
+  <Examination>
+    <Id>1</Id>
+    <CategoryId>1</CategoryId>
+    <DoctorId>1</DoctorId>
+  </Examination>
+  <Examination>
+    <Id>2</Id>
+    <CategoryId>2</CategoryId>
+    <DoctorId>1</DoctorId>
+  </Examination>
+  <Examination>
+    <Id>3</Id>
+    <CategoryId>1</CategoryId>
+    <DoctorId>2</DoctorId>
+  </Examination>
+  <Examination>
+    <Id>4</Id>
+    <CategoryId>3</CategoryId>
+    <DoctorId>2</DoctorId>
+  </Examination>
+  <Examination>
+    <Id>5</Id>
+    <CategoryId>2</CategoryId>
+    <DoctorId>3</DoctorId>
+  </Examination>
+</Examinations>

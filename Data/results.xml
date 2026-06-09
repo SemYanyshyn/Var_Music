@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DiagnosticResults>
+  <TaskA>
+    <Doctor Surname="Cameron">
+      <Category Name="CT" Count="2" />
+    </Doctor>
+    <Doctor Surname="House">
+      <Category Name="CT" Count="1" />
+      <Category Name="MRI" Count="3" />
+    </Doctor>
+    <Doctor Surname="Wilson">
+      <Category Name="MRI" Count="2" />
+      <Category Name="XRay" Count="2" />
+    </Doctor>
+  </TaskA>
+  <TaskB>
+    <Month Number="1">
+      <Category Name="CT" MaxSpent="800">
+        <Patient Surname="Doe" />
+      </Category>
+      <Category Name="MRI" MaxSpent="2000">
+        <Patient Surname="Smith" />
+      </Category>
+    </Month>
+    <Month Number="2">
+      <Category Name="MRI" MaxSpent="1000">
+        <Patient Surname="Brown" />
+      </Category>
+      <Category Name="XRay" MaxSpent="300">
+        <Patient Surname="Brown" />
+        <Patient Surname="Taylor" />
+      </Category>
+    </Month>
+    <Month Number="3">
+      <Category Name="CT" MaxSpent="1600">
+        <Patient Surname="Doe" />
+      </Category>
+      <Category Name="MRI" MaxSpent="1000">
+        <Patient Surname="Smith" />
+        <Patient Surname="Taylor" />
+      </Category>
+    </Month>
+  </TaskB>
+</DiagnosticResults>

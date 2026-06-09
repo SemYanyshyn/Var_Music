@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Categories>
+  <Category>
+    <Id>1</Id>
+    <Name>MRI</Name>
+    <Price>1000</Price>
+  </Category>
+  <Category>
+    <Id>2</Id>
+    <Name>CT</Name>
+    <Price>800</Price>
+  </Category>
+  <Category>
+    <Id>3</Id>
+    <Name>XRay</Name>
+    <Price>300</Price>
+  </Category>
+</Categories>

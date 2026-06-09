@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Doctors>
+  <Doctor>
+    <Id>1</Id>
+    <Surname>House</Surname>
+  </Doctor>
+  <Doctor>
+    <Id>2</Id>
+    <Surname>Wilson</Surname>
+  </Doctor>
+  <Doctor>
+    <Id>3</Id>
+    <Surname>Cameron</Surname>
+  </Doctor>
+</Doctors>

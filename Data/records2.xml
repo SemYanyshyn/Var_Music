@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Records>
+  <Record>
+    <Date>2024-02-18</Date>
+    <ExaminationId>4</ExaminationId>
+    <PatientId>4</PatientId>
+  </Record>
+  <Record>
+    <Date>2024-03-03</Date>
+    <ExaminationId>5</ExaminationId>
+    <PatientId>2</PatientId>
+  </Record>
+  <Record>
+    <Date>2024-03-10</Date>
+    <ExaminationId>5</ExaminationId>
+    <PatientId>2</PatientId>
+  </Record>
+  <Record>
+    <Date>2024-03-15</Date>
+    <ExaminationId>1</ExaminationId>
+    <PatientId>4</PatientId>
+  </Record>
+  <Record>
+    <Date>2024-03-22</Date>
+    <ExaminationId>3</ExaminationId>
+    <PatientId>1</PatientId>
+  </Record>
+</Records>

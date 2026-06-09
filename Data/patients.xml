@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patients>
+  <Patient>
+    <Id>1</Id>
+    <Surname>Smith</Surname>
+  </Patient>
+  <Patient>
+    <Id>2</Id>
+    <Surname>Doe</Surname>
+  </Patient>
+  <Patient>
+    <Id>3</Id>
+    <Surname>Brown</Surname>
+  </Patient>
+  <Patient>
+    <Id>4</Id>
+    <Surname>Taylor</Surname>
+  </Patient>
+</Patients>
