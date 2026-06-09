@@ -91,23 +91,29 @@ public class DiagnosticProcessorTests : IClassFixture<DiagnosticFixture> // це
 
     [Fact] // це позначка для xUnit, що метод який під ним є тестом. Тобто xUnit бачить [Fact] і розуміє: цей метод треба запустити під час тестування.
     // Без [Fact] метод просто існує, але як тест не запуститься.
-    public void TaskATest()
+    public void TaskATest() // це метод-тест для перевірки TaskA
     {
+        // тут ми створюємо очікуваний результат, тобто якщо TaskA працює правильно, вона має повернути ось такий XML:
         var expected = XElement.Parse(@"
 <TaskA>
     <Doctor Surname=""House"">
         <Category Name=""MRI"" Count=""3"" />
     </Doctor>
 </TaskA>");
+// Чому Count="3"? Бо в Records є 3 записи на обстеження ExaminationId = 1:
 
-        var result = DiagnosticProcessor.GetTaskA(
+        var result = DiagnosticProcessor.GetTaskA( // виклик метода і передаю дані йому. Метод GetTaskA має обробити ці дані і повернути XML-результат.
             _fixture.Records,
             _fixture.Examinations,
             _fixture.Doctors,
             _fixture.Categories
         );
 
+        // Коротко - = перевіряє, що метод повернув правильний XML. Якщо ні — показує неправильний результат
         Assert.True(XNode.DeepEquals(expected, result), result.ToString());
+        // XNode.DeepEquals(expected, result) - порівнює два XML повністю: назви тегів, атрибути;значення, вкладені елементи
+        // Assert.True(...) - означає тест пройде, якщо всередині буде true. Тобто якщо XML однакові — тест пройшов.
+        // result.ToString() - це повідомлення, яке покажеться, якщо тест впаде.
     }
 
     [Fact]
